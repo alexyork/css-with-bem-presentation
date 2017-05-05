@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Shower Presentation Engine</title>
+	<title>CSS with BEM</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +10,13 @@
 <body class="shower list">
 
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>CSS with BEM</h1>
+		<p>Alex York</p>
 	</header>
 
 	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
+		<h2>CSS with BEM</h2>
+		<p>Brought to you by <a href="http://alexyork.net">Alex York</a></p>
 		<figure>
 			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
 			<figcaption class="white">
@@ -29,172 +29,291 @@
 				color:#FFF;
 				text-align:center;
 				font-size:70px;
-				}
+			}
 			#cover p {
 				margin:10px 0 0;
 				text-align:center;
 				color:#FFF;
 				font-style:italic;
 				font-size:20px;
-				}
-				#cover p a {
-					color:#FFF;
-					}
+			}
+			#cover p a {
+				color:#FFF;
+			}
 		</style>
 	</section>
 
 	<section class="slide">
-		<h2>Shower key features</h2>
+		<h2>Common CSS problems</h2>
 		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+			<li>No established naming conventions</li>
+			<li class="next">No established best practices</li>
+			<li class="next">Class name clashes</li>
+			<li class="next">Specificity issues</li>
+			<li class="next">styles.css with 3.000 LOC</li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
+		<h2>Ketil's favourite quote</h2>
 		<figure>
 			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+				<p>There are only two hard problems in Computer Science: cache invalidation and naming things.</p>
 			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
+			<figcaption>Phil Karlton, originally</figcaption>
 		</figure>
 	</section>
 
 	<section class="slide">
-		<h2>Code samples</h2>
+		<h2>How to name?</h2>
 		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+			<code>.phoneListItem {}</code>
+			<code class="mark">.PhoneListItem {}</code>
+			<code>.phone-list-item {}</code>
+			<code class="mark">.Phone-List-Item {}</code>
+		</pre>
+		<p class="next">Personal preference, right?</p>
+	</section>
+
+	<section class="slide">
+		<h2>Personal preference in Java:</h2>
+		<pre>
+			<code>public class MyJavaClass {</code>
+			<code>    public string <mark class="important">GetName</mark>() {</code>
+			<code>    }</code>
+			<code>}</code>
+		</pre>
+		<p class="next">"My personal preference is to name functions with a capital-letter first!"</p>
+	</section>
+
+	<section class="slide">
+		<h2>Best practices</h2>
+		<pre>
+			<code>.phone-list-item p {}</code>
+			<code class="mark">.phone-list-item .description {}</code>
+			<code>#phone-list li p {}</code>
+			<code class="mark">.phone-page .phone-list .item .description {}</code>
+		</pre>
+		<p class="next">Which of these are good? Which are bad?</p>
+	</section>
+
+	<section id="class-clashes" class="slide">
+		<h2>Class clashes</h2>
+		<pre>
+			<code>.description { color: red; }</code>
+			<code>...</code>
+			<code class="mark">// meanwhile...</code>
+			<code>...</code>
+			<code>.phone-list-item .description { font-weight: bold; }</code>
+		</pre>
+		<p>Great, I'm now bold and red :-(</p>
+		<style>
+			#class-clashes p {
+				color: red;
+				font-weight: bold;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Specificity Wars</h2>
+		<pre>
+			<code>p { color: red; }</code>
+			<code class="mark">#product-page .content p { color: blue; }</code>
+			<code>.description { color: blue; } <mark class="important">// Won't work</mark></code>
+			<code class="mark">#product-page .description { color: blue; } <mark class="important">// Won't work</mark></code>
+			<code>#product-page .content .product-content ...</code>
+			<code>    .product-list-item .description ...</code>
+			<code>        { color: blue; } <mark>// Finally!</mark></code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
+		<h2>Figure this out: Hard</h2>
+		<strong>HTML</strong>
+		<pre>
+			<code>&lt;div class="my-page"&gt;</code>
+			<code class="mark">    &lt;p class="description"&gt;<mark>What color?</mark></code>
+		</pre>
+		<strong>CSS</strong>
+		<pre>
+			<code class="mark">p { color: red; }</code>
+			<code>.my-page .description { color: green; } <mark class="next">(winner)</mark></code>
+			<code class="mark">.my-page p { color: blue; }</code>
+			<code>.description { color: pink; }</code>
+		</pre>
 	</section>
 
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
+	<section class="slide">
+		<h2 class="shout shrink">Enter BEM!</h2>
+	</section>
+
+	<section class="slide">
+		<h2>What is BEM?</h2>
 		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
+			<blockquote>
+				<p>BEM is a highly useful, powerful, and simple naming convention that makes your front-end code easier to read and understand, easier to work with, easier to scale, more robust and explicit, and a lot more strict.</p>
+			</blockquote>
+			<figcaption>getbem.com</figcaption>
 		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2>BEM - The B, E and M</h2>
+		<table>
+			<tr>
+				<th scope="col">&nbsp;</th>
+				<th>Description</th>
+			</tr>
+			<tr>
+				<th scope="row">Block</th>
+				<td>Standalone entity that is meaningful on its own.</td>
+			</tr>
+			<tr>
+				<th scope="row">Element</th>
+				<td>A part of a block that has no standalone meaning and is semantically tied to its block.</td>
+			</tr>
+			<tr>
+				<th scope="row">Modifier</th>
+				<td>A flag on a block or element. Use them to change appearance or behavior.</td>
+			</tr>
+		</table>
 	</section>
 
 	<section class="slide">
-		<h2>Inner navigation</h2>
+		<h2>Example: Footer HTML</h2>
+		<pre>
+			<code>&lt;footer class="footer"&gt;</code>
+			<code class="mark">  &lt;ul class="footer__navigation"&gt;</code>
+			<code>    &lt;li class="footer__navigation-item"&gt;&lt;/li&gt;</code>
+			<code class="mark">  &lt;/ul&gt;</code>
+			<code>  &lt;p class="footer__disclaimers"&gt;...&lt;/p&gt;</code>
+			<code class="mark">&lt;/footer&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Example: Footer CSS</h2>
+		<pre>
+			<code>.footer {}</code>
+			<code class="mark">.footer__navigation {}</code>
+			<code>.footer__navigation-item {}</code>
+			<code class="mark">.footer__navigation-item--highlight {}</code>
+			<code>.footer__disclaimers {}</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Things to note</h2>
 		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
+			<li>Flat class structure</li>
+			<li>Clear & consistent naming</li>
+			<li>Clash resistant</li>
+			<li>Specificity Wars resistant</li>
+			<li>No use of tag names</li>
+			<li>No use of #id's</li>
+			<li>Facilitates components/modules -&gt; reuse</li>
 		</ol>
 	</section>
 
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
+	<section class="slide">
+		<h2>Example: Footer LESS/SASS</h2>
+		<pre>
+			<code>.footer {</code>
+			<code>  &__navigation {</code>
+			<code>    &-item {</code>
+			<code>      &--highlight {}</code>
+			<code>    }</code>
+			<code>  }</code>
+			<code>  &__disclaimers {}</code>
+			<code>}</code>
+		</pre>
 	</section>
 
-	<section class="slide" id="see-more">
+	<section class="slide">
+		<h2>BEM Rules</h2>
+		<ol>
+			<li>Structure: <code>.my-block__my-element</code></li>
+			<li>With modifier: <code>.my-block__my-element--mofifier</code></li>
+			<li>No more than one element allowed</li>
+			<li>Lower case</li>
+			<li><code>-</code> between words</li>
+			<li><code>__</code> between block & element</li>
+			<li><code>--</code> for modifiers</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Modifiers</h2>
+		<pre>
+			<code>&lt;button class="button"&gt;Click me&lt;/button&gt;</code>
+			<code class="mark">&lt;button class="button button<mark>--danger</mark>"&gt;Don't click me&lt;/button&gt;</code>
+			<code>&lt;li class="footer__navigation-item</code>
+			<code>           footer__navigation-item<mark>--size-large</mark></code>
+			<code>           footer__navigation-item<mark>--highlighted</mark>"&gt;&lt;/li&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Figure this out: Easy</h2>
+		<strong>HTML</strong>
+		<pre>
+			<code>&lt;footer class="footer"&gt;</code>
+			<code>    &lt;p class="footer__disclaimer"&gt;<mark>What color?</mark></code>
+		</pre>
+		<strong>CSS</strong>
+		<pre>
+			<code>.footer__disclaimer { color: green; }</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Debugging this...</h2>
+		<pre>
+			<code>&lt;li class="footer__navigation-item</code>
+			<code>           footer__navigation-item--highlighted"&gt;&lt;/li&gt;</code>
+		</pre>
+		<h2>...is easy</h2>
+		<ol>
+			<li>Open file <code>footer.less</code></li>
+			<li>Go to <code>navigation-item</code> element styles</li>
+			<li>That's it (no clashes, overrides, side-effects etc)</li>
+		</ol>
+	</section>
+
+	<section class="slide">
+		<h2>Not safe to edit:</h2>
+		<pre>
+			<code>.description {</code>
+			<code class="mark">    color: red;<mark>// ARGH!</mark></code>
+			<code>}</code>
+		</pre>
+		<div class="next">
+			<h2>Safe to edit this:</h2>
+			<pre>
+				<code>.footer__navigation-item--highlighted {</code>
+				<code class="mark">    color: red; <mark>// Safe</mark></code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide see-more">
 		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
+			<a href="http://styleguide.telia.no/" target="_blank">styleguide.telia.no</a>
 		</h2>
 		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
+			.see-more h2 {
+				font-size: 60px
+			}
 		</style>
 	</section>
 
-	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</footer>
+	<section class="slide see-more">
+		<h2 class="shout">
+			<a href="http://getbem.com/" target="_blank">getbem.com</a>
+		</h2>
+	</section>
 
 	<div class="progress"></div>
 
